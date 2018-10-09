@@ -122,10 +122,10 @@ async function burnBch() {
     tb.sign(0, keyPair, redeemScript, 0x01, utxo.satoshis)
     const builtTx = tb.build()
     const txHex = builtTx.toHex()
-    //console.log(txHex)
+    console.log(txHex)
 
     // sendRawTransaction to running BCH node
-    const broadcast = await Wormhole.RawTransactions.sendRawTransaction(txHex)
+    //const broadcast = await Wormhole.RawTransactions.sendRawTransaction(txHex)
 
     console.log(`You can monitor the below transaction ID on a block explorer.`)
     console.log(`Transaction ID: ${broadcast}`)
