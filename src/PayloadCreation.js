@@ -9,7 +9,8 @@ class PayloadCreation {
       const response = await axios.get(`${this.restURL}payloadCreation/burnBCH`)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -20,7 +21,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -31,7 +33,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -48,7 +51,8 @@ class PayloadCreation {
       const response = await axios.post(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -76,7 +80,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -99,7 +104,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -121,7 +127,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -132,7 +139,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -143,7 +151,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -154,7 +163,8 @@ class PayloadCreation {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -171,7 +181,8 @@ class PayloadCreation {
       const response = await axios.post(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -183,7 +194,8 @@ class PayloadCreation {
       const response = await axios.post(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -195,7 +207,8 @@ class PayloadCreation {
       const response = await axios.post(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 }

@@ -23,7 +23,8 @@ class RawTransactions {
       const response = await axios.post(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -34,7 +35,8 @@ class RawTransactions {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -45,7 +47,8 @@ class RawTransactions {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -62,7 +65,8 @@ class RawTransactions {
       const response = await axios.post(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -91,7 +95,8 @@ class RawTransactions {
       const response = await axios.get(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -104,7 +109,8 @@ class RawTransactions {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 }

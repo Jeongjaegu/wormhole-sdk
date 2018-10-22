@@ -11,7 +11,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -22,7 +23,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -33,7 +35,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -44,7 +47,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -55,7 +59,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -66,7 +71,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -77,7 +83,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -86,7 +93,8 @@ class DataRetrieval {
       const response = await axios.get(`${this.restURL}dataRetrieval/info`)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -97,7 +105,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -108,7 +117,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -119,7 +129,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -130,7 +141,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -141,7 +153,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -152,7 +165,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -167,7 +181,8 @@ class DataRetrieval {
       const response = await axios.get(path)
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -178,7 +193,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -189,7 +205,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -200,7 +217,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -211,7 +229,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 
@@ -222,7 +241,8 @@ class DataRetrieval {
       )
       return response.data
     } catch (error) {
-      throw error.response.data
+      if (error.response && error.response.data) throw error.response.data
+      throw error
     }
   }
 }
