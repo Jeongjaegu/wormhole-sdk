@@ -6,10 +6,10 @@
 const NETWORK = `testnet`
 
 // Change these values to match the crowd-sale token.
-const RECV_ADDR = "bchtest:qp6hgvevf4gzz6l7pgcte3gaaud9km0l459fa23dul"
+const RECV_ADDR = "bchtest:qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqkg3h8g6e"
 const TOKEN_QTY = "1.0" // Number of WHC to send, as a string. Up to 8 decimal places.
 
-const WH = require("wormhole-sdk/lib/Wormhole").default
+const WH = require("../../lib/Wormhole").default
 
 // Instantiate Wormhole based on the network.
 let Wormhole
@@ -40,14 +40,14 @@ async function participateInCrowdSale() {
     const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
 
     // master HDNode
-    if (NETWORK === `mainnet`)
-      var masterHDNode = Wormhole.HDNode.fromSeed(rootSeed)
-    else var masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+    let masterHDNode
+    if (NETWORK === `mainnet`) masterHDNode = Wormhole.HDNode.fromSeed(rootSeed)
+    else masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
 
     // HDNode of BIP44 account
     const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
 
-    const change = Wormhole.HDNode.derivePath(account, "0/0")
+    const change = Wormhole.HDNode.derivePath(account, "0/1")
 
     // get the cash address
     const cashAddress = Wormhole.HDNode.toCashAddress(change)
@@ -58,7 +58,7 @@ async function participateInCrowdSale() {
     )
 
     // Get a utxo to use for this transaction.
-    const u = await Wormohole.Address.utxo([cashAddress])
+    const u = await Wormhole.Address.utxo([cashAddress])
     const utxo = findBiggestUtxo(u[0])
 
     // Create a rawTx using the largest utxo in the wallet.
@@ -94,7 +94,7 @@ async function participateInCrowdSale() {
     const txHex = builtTx.toHex()
 
     // sendRawTransaction to running BCH node
-    const broadcast = await Wormohole.RawTransactions.sendRawTransaction(txHex)
+    const broadcast = await Wormhole.RawTransactions.sendRawTransaction(txHex)
     console.log(`Transaction ID: ${broadcast}`)
   } catch (err) {
     console.log(`Error in app: `, err)
