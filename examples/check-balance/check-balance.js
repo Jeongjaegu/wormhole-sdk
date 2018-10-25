@@ -4,12 +4,12 @@
 */
 
 // Set NETWORK to either testnet or mainnet
-const NETWORK = `mainnet`
+const NETWORK = `testnet`
 
 const WH = require("../../lib/Wormhole").default
 
 // Instantiate Wormhole based on the network.
-let Wormhole;
+let Wormhole
 if (NETWORK === `mainnet`)
   Wormhole = new WH({ restURL: `https://rest.bitcoin.com/v1/` })
 else Wormhole = new WH({ restURL: `https://trest.bitcoin.com/v1/` })

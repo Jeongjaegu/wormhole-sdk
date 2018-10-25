@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Bitcoin-com/wormhole-sdk#readme",
   "dependencies": {
-    "wormhole-sdk": "^1.0.4"
+    "wormhole-sdk": "^1.2.1"
   }
 }

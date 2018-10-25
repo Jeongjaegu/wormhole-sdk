@@ -2,16 +2,17 @@
   Close crowdsale
 */
 
-"use strict"
+// Set NETWORK to either testnet or mainnet
+const NETWORK = `testnet`
 
 // Instantiate wormholecash
-const WH = require("wormhole-sdk/lib/Wormhole").default
-const Wormhole = new WH({
-  restURL: `https://wormholecash-staging.herokuapp.com/v1/`
-})
+const WH = require("../../lib/Wormhole").default
 
-const BITBOXSDK = require("bitbox-sdk/lib/bitbox-sdk").default
-const BITBOX = new BITBOXSDK({ restURL: "https://trest.bitcoin.com/v1/" })
+// Instantiate Wormhole based on the network.
+let Wormhole
+if (NETWORK === `mainnet`)
+  Wormhole = new WH({ restURL: `https://rest.bitcoin.com/v1/` })
+else Wormhole = new WH({ restURL: `https://trest.bitcoin.com/v1/` })
 
 const fs = require("fs")
 
@@ -28,10 +29,9 @@ try {
 }
 
 // Create a fixed token.
-async function createCrowdSale() {
+async function closeCrowdSale() {
   try {
     const mnemonic = walletInfo.mnemonic
-    console.log(mnemonic)
 
     // root seed buffer
     const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
@@ -45,15 +45,14 @@ async function createCrowdSale() {
     const change = Wormhole.HDNode.derivePath(account, "0/0")
 
     // get the cash address
-    const cashAddress = BITBOX.HDNode.toCashAddress(change)
-    console.log(cashAddress)
+    const cashAddress = Wormhole.HDNode.toCashAddress(change)
     // let cashAddress = walletInfo.cashAddress;
 
     // close the crowdsale.
-    const closeCrowdSale = await Wormhole.PayloadCreation.closeCrowdSale(220)
+    const closeCrowdSale = await Wormhole.PayloadCreation.closeCrowdSale(424)
 
     // Get a utxo to use for this transaction.
-    const u = await BITBOX.Address.utxo([cashAddress])
+    const u = await Wormhole.Address.utxo([cashAddress])
     const utxo = findBiggestUtxo(u[0])
 
     // Create a rawTx using the largest utxo in the wallet.
@@ -71,7 +70,7 @@ async function createCrowdSale() {
       opReturn, // Raw transaction we're working with.
       [utxo], // Previous utxo
       cashAddress, // Destination address.
-      0.00001 // Miner fee.
+      0.000005 // Miner fee.
     )
 
     const tx = Wormhole.Transaction.fromHex(changeHex)
@@ -86,13 +85,13 @@ async function createCrowdSale() {
     //console.log(txHex);
 
     // sendRawTransaction to running BCH node
-    const broadcast = await BITBOX.RawTransactions.sendRawTransaction(txHex)
+    const broadcast = await Wormhole.RawTransactions.sendRawTransaction(txHex)
     console.log(`Transaction ID: ${broadcast}`)
   } catch (err) {
     console.log(err)
   }
 }
-createCrowdSale()
+closeCrowdSale()
 
 // SUPPORT/PRIVATE FUNCTIONS BELOW
 
