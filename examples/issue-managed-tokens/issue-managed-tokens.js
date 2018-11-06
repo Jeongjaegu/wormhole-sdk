@@ -3,17 +3,18 @@
   wallet.json. These can tokens can then be sent with the send-tokens example.
 */
 
-const WH = require("wormhole-sdk/lib/Wormhole").default
+//const WH = require("wormhole-sdk/lib/Wormhole").default
+const WH = require("../../lib/Wormhole").default
 
 // Set NETWORK to either testnet or mainnet
-const NETWORK = `mainnet`
+const NETWORK = `testnet`
 
 // This is the WH propertyId of the token that this program will be creating
 // new tokens for.
-const PROPERTY_ID = 200
+const PROPERTY_ID = 460
 
 // The quantity of new tokens to issue.
-const TOKEN_QTY = 100
+const TOKEN_QTY = 2345
 
 // Instantiate Wormhole based on the network.
 let Wormhole

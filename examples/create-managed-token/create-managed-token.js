@@ -3,9 +3,13 @@
 */
 
 // Set NETWORK to either testnet or mainnet
-const NETWORK = `mainnet`
+const NETWORK = `testnet`
 
-const WH = require("wormhole-sdk/lib/Wormhole").default
+const util = require("util")
+util.inspect.defaultOptions = { depth: 1 }
+
+//const WH = require("wormhole-sdk/lib/Wormhole").default
+const WH = require("../../lib/Wormhole").default
 
 // Instantiate Wormhole based on the network.
 let Wormhole
@@ -47,7 +51,8 @@ async function createManagedToken() {
 
     // get the cash address
     const cashAddress = Wormhole.HDNode.toCashAddress(change)
-    // const cashAddress = walletInfo.cashAddress
+    //const cashAddress = walletInfo.cashAddress
+    //console.log(`cashAddress: ${cashAddress}`)
 
     // Create the managed token.
     const managed = await Wormhole.PayloadCreation.managed(
@@ -64,6 +69,7 @@ async function createManagedToken() {
     // Get a utxo to use for this transaction.
     const u = await Wormhole.Address.utxo([cashAddress])
     const utxo = findBiggestUtxo(u[0])
+    //console.log(`u: ${util.inspect(u)}`)
 
     // Create a rawTx using the largest utxo in the wallet.
     utxo.value = utxo.amount
