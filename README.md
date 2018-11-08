@@ -17,3 +17,5 @@ Learn more about Wormhole SDK here:
 - [Wormhole Full Node GitHub Repo](https://github.com/copernet/wormhole)
 
 - [Wormholecash SDK code examples](https://github.com/Bitcoin-com/wormhole-sdk/tree/master/examples)
+
+Testing Travis CI and Slack integration.
