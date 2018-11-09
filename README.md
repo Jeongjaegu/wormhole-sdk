@@ -22,3 +22,5 @@ Learn more about Wormhole SDK here:
 - [Wormholecash SDK code examples](https://github.com/Bitcoin-com/wormhole-sdk/tree/master/examples)
 
 - [WHC and BCH Testnet Faucets](https://developer.bitcoin.com/faucets)
+
+- [Ask Questions in our Discord Channel](https://discord.gg/zRnTaVu)
