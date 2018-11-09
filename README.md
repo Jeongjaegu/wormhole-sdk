@@ -2,7 +2,7 @@
 
 [Wormhole SDK](https://developer.bitcoin.com/wormhole) powered by [BITBOX](https://developer.bitcoin.com/bitbox).
 
-[![Build Status](https://travis-ci.org/Bitcoin-com/wormhole-sdk?branch=master)](https://travis-ci.org/Bitcoin-com/wormhole-sdk)
+[![Build Status](https://travis-ci.org/Bitcoin-com/wormhole-sdk.svg?branch=master)](https://travis-ci.org/Bitcoin-com/wormhole-sdk)
 
 [![Coverage Status](https://coveralls.io/repos/github/Bitcoin-com/wormholecash/badge.svg?branch=master)](https://coveralls.io/github/Bitcoin-com/wormholecash?branch=master)
 
